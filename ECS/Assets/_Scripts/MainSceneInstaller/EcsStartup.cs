@@ -41,7 +41,6 @@ namespace _Scripts.MainSceneInstaller {
         }
 
         private void CreateEntities() {
-            // --- Баланс ---
             var balanceEntity = _ecsWorld.NewEntity();
             ref var balance = ref balanceEntity.Get<BalanceComponent>();
             balance.Value = 150f;
@@ -49,7 +48,6 @@ namespace _Scripts.MainSceneInstaller {
             ref var balanceView = ref balanceEntity.Get<BalanceViewComponent>();
             balanceView.BalanceText = _balanceText;
 
-            // --- Бизнесы ---
             for (int i = 0; i < _config.Businesses.Length; i++) {
                 var entity = _ecsWorld.NewEntity();
                 var data = _config.Businesses[i];
@@ -89,13 +87,13 @@ namespace _Scripts.MainSceneInstaller {
                 view.Upgrade2NameText = uiView.SecondBusinessImpName;
                 view.Upgrade1PriceText = uiView.FirstBusinessImpPrice;
                 view.Upgrade2PriceText = uiView.SecondBusinessImpPrice;
-
-                // Установка начальных значений из конфига
+                
                 view.NameText.text = data.Name;
                 view.Upgrade1NameText.text = data.Upgrade1.Name;
                 view.Upgrade2NameText.text = data.Upgrade2.Name;
-                view.Upgrade1PriceText.text = data.Upgrade1.Cost.ToString();
-                view.Upgrade2PriceText.text = data.Upgrade2.Cost.ToString();
+               // view.Upgrade1PriceText.text = data.Upgrade1.Cost.ToString();
+               // view.Upgrade2PriceText.text = data.Upgrade2.Cost.ToString();
+
             }
         }
 

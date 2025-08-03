@@ -19,6 +19,7 @@ namespace _Scripts.Systems
         
             foreach (var i in _filter) 
             {
+                ref var balance = ref _balanceFilter.Get1(i);
                 ref var business = ref _filter.Get1(i);
                 ref var income = ref _filter.Get2(i);
                 ref var upg1 = ref _filter.Get3(i);
@@ -32,10 +33,10 @@ namespace _Scripts.Systems
                 view.CostText.text = $"Цена: {(business.Level + 1) * business.BaseCost:0}$";
                 view.ProgressBar.value = income.Progress / business.Delay;
 
-                view.Upgrade1Btn.interactable = !upg1.Purchased;
+                view.Upgrade1Btn.interactable = !upg1.Purchased && upg1.Cost < balance.Value;
                 view.Upgrade1PriceText.text = upg1.Purchased ? "Куплено" : $"{upg1.Cost}$";
-                view.Upgrade2Btn.interactable = !upg2.Purchased;
-                view.Upgrade1PriceText.text = upg2.Purchased ? "Куплено" : $"{upg2.Cost}$";
+                view.Upgrade2Btn.interactable = !upg2.Purchased && upg2.Cost < balance.Value;
+                view.Upgrade2PriceText.text = upg2.Purchased ? "Куплено" : $"{upg2.Cost}$";
             }
         }
     }
