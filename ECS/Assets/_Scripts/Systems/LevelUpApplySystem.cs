@@ -17,10 +17,8 @@ namespace _Scripts.Systems
             {
                 ref var request = ref _requests.Get1(i);
                 
-                if (!request.Target.IsAlive()) 
-                    continue;
-
                 ref var business = ref request.Target.Get<BusinessComponent>();
+                
                 var cost = (business.Level + 1) * business.BaseCost;
 
                 if (balance.Value >= cost) 
@@ -28,8 +26,6 @@ namespace _Scripts.Systems
                     balance.Value -= cost;
                     business.Level++;
                 }
-
-                _requests.GetEntity(i).Destroy(); 
             }
         }
     }

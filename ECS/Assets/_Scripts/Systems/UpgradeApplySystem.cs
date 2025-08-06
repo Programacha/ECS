@@ -30,18 +30,11 @@ namespace _Scripts.Systems
                     upgrade1.Purchased = true;
                     income.Multiplier1 = upgrade1.Multiplier;
                 }
-                else
-                {
-                    _upgrade1Requests.GetEntity(i).Destroy();
-                }
             }
             
             foreach (var i in _upgrade2Requests)
             {
                 ref var request = ref _upgrade2Requests.Get1(i);
-                
-                if(!request.Target.IsAlive()) 
-                    continue;
 
                 ref var upgrade2 = ref request.Target.Get<Upgrade2Component>();
                 ref var income = ref request.Target.Get<IncomeComponent>();
@@ -51,10 +44,6 @@ namespace _Scripts.Systems
                     balance.Value -= upgrade2.Cost;
                     upgrade2.Purchased = true;
                     income.Multiplier1 = upgrade2.Multiplier;
-                }
-                else
-                {
-                    _upgrade2Requests.GetEntity(i).Destroy();
                 }
             }
         }

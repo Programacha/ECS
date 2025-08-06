@@ -1,6 +1,7 @@
 using _Scripts.BusinessWindow;
 using _Scripts.Components;
 using _Scripts.Configs;
+using _Scripts.Requests;
 using _Scripts.Systems;
 using Leopotam.Ecs;
 using TMPro;
@@ -32,6 +33,14 @@ namespace _Scripts.MainSceneInstaller
 
             _runtimeSystems = new EcsSystems(_ecsWorld);
 
+            RegisterSystems();
+            RegisterEvents();
+            
+            _runtimeSystems.Init();
+        }
+
+        private void RegisterSystems()
+        {
             _runtimeSystems
                 .Add(new BusinessProgressSystem())
                 .Add(new LevelUpButtonSystem())
@@ -39,11 +48,18 @@ namespace _Scripts.MainSceneInstaller
                 .Add(new UpgradeButtonSystem())
                 .Add(new UpgradeApplySystem())
                 .Add(new UIUpdateSystem())
-                .Add(new SaveSystem())
-                .Init();
+                .Add(new SaveSystem());
         }
 
-        private void CreateEntities()
+        private void RegisterEvents()
+        {
+            _runtimeSystems
+                .OneFrame<LevelUpRequest>()
+                .OneFrame<Upgrade1Request>()
+                .OneFrame<Upgrade2Request>();
+        }
+
+    private void CreateEntities()
         {
             var balanceEntity = _ecsWorld.NewEntity();
             ref var balance = ref balanceEntity.Get<BalanceComponent>();
