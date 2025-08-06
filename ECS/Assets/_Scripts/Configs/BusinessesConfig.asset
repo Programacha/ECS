@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397142cb336eca94e80fd6b8d9fb47f7, type: 3}
   m_Name: BusinessesConfig
   m_EditorClassIdentifier: 
-  Businesses:
-  - Name: "1 \u0411\u0418\u0417\u041D\u0415\u0421"
+  _businesses:
+  - Name: 1
     Delay: 3
     BaseCost: 3
     BaseIncome: 3
@@ -22,10 +22,10 @@ MonoBehaviour:
       Cost: 50
       Multiplier: 50
     Upgrade2:
-      Name: 2
+      Name: 1
       Cost: 400
       Multiplier: 100
-  - Name: "2 \u0411\u0418\u0417\u041D\u0415\u0421"
+  - Name: 2
     Delay: 6
     BaseCost: 40
     BaseIncome: 40
@@ -37,7 +37,7 @@ MonoBehaviour:
       Name: 2
       Cost: 4000
       Multiplier: 200
-  - Name: "3 \u0411\u0418\u0417\u041D\u0415\u0421"
+  - Name: 3
     Delay: 10
     BaseCost: 200
     BaseIncome: 200
@@ -49,7 +49,7 @@ MonoBehaviour:
       Name: 2
       Cost: 20000
       Multiplier: 150
-  - Name: "4 \u0411\u0418\u0417\u041D\u0415\u0421"
+  - Name: 4
     Delay: 17
     BaseCost: 1000
     BaseIncome: 1000
@@ -61,7 +61,7 @@ MonoBehaviour:
       Name: 2
       Cost: 50000
       Multiplier: 200
-  - Name: "5 \u0411\u0418\u0417\u041D\u0415\u0421"
+  - Name: 5
     Delay: 30
     BaseCost: 5000
     BaseIncome: 5000

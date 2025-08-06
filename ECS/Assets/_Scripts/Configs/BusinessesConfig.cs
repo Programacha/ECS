@@ -6,10 +6,12 @@ namespace _Scripts.Configs
     [CreateAssetMenu(fileName = "BusinessesConfig", menuName = "Config/BusinessesConfig")]
     public class BusinessesConfig : ScriptableObject
     {
-        public BusinessData[] Businesses;
+        public BusinessData [] Businesses => _businesses;
+            
+        [SerializeField]private BusinessData[] _businesses;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class BusinessData {
         public string Name;
         public float Delay;
@@ -19,7 +21,7 @@ namespace _Scripts.Configs
         public UpgradeData Upgrade2;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class UpgradeData {
         public string Name;
         public float Cost;
