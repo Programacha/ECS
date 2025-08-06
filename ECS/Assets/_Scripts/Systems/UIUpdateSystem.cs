@@ -8,13 +8,19 @@ namespace _Scripts.Systems
         private readonly EcsFilter<BusinessComponent, IncomeComponent, Upgrade1Component, Upgrade2Component, BusinessViewComponent> _filter = null;
         private readonly EcsFilter<BalanceComponent, BalanceViewComponent> _balanceFilter = null;
 
+        private const string BALANCE = "Баланс";
+        private const string LVL = "LVL";
+        private const string INCOME = "INCOME";
+        private const string PRICE = "PRICE";
+        private const string PURCHASED = "PURCHASED";
+
         public void Run() 
         {
-
-            foreach (var i in _balanceFilter) {
+            foreach (var i in _balanceFilter)
+            {
                 ref var balance = ref _balanceFilter.Get1(i);
                 ref var view = ref _balanceFilter.Get2(i);
-                view.BalanceText.text = $"Баланс: {balance.Value:0}$";
+                view.BalanceText.text = $"{BALANCE + ":" + balance.Value :0}$";
             }
         
             foreach (var i in _filter) 
@@ -28,15 +34,15 @@ namespace _Scripts.Systems
 
                 var currentIncome = business.Level * business.BaseIncome * (1 + income.Multiplier1 + income.Multiplier2);
 
-                view.LevelText.text = $"LVL: {business.Level}";
-                view.IncomeText.text = $"Доход: {currentIncome:0}$";
-                view.CostText.text = $"Цена: {(business.Level + 1) * business.BaseCost:0}$";
+                view.LevelText.text = $"{LVL +":"+business.Level}";
+                view.IncomeText.text = $"{INCOME +":"+currentIncome:0}$";
+                view.CostText.text = $"{PRICE+" : "+(business.Level + 1) * business.BaseCost:0}$";
                 view.ProgressBar.value = income.Progress / business.Delay;
 
                 view.Upgrade1Btn.interactable = !upg1.Purchased && upg1.Cost < balance.Value;
-                view.Upgrade1PriceText.text = upg1.Purchased ? "Куплено" : $"{upg1.Cost}$";
+                view.Upgrade1PriceText.text = upg1.Purchased ? PURCHASED : $"{upg1.Cost}$";
                 view.Upgrade2Btn.interactable = !upg2.Purchased && upg2.Cost < balance.Value;
-                view.Upgrade2PriceText.text = upg2.Purchased ? "Куплено" : $"{upg2.Cost}$";
+                view.Upgrade2PriceText.text = upg2.Purchased ? PURCHASED : $"{upg2.Cost}$";
             }
         }
     }

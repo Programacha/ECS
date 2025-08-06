@@ -17,7 +17,9 @@ namespace _Scripts.Systems
             foreach (var i in _upgrade1Requests)
             {
                 ref var request = ref _upgrade1Requests.Get1(i);
-                if(!request.Target.IsAlive()) continue;
+                
+                if(!request.Target.IsAlive()) 
+                    continue;
 
                 ref var upgrade1 = ref request.Target.Get<Upgrade1Component>();
                 ref var income = ref request.Target.Get<IncomeComponent>();
@@ -37,7 +39,9 @@ namespace _Scripts.Systems
             foreach (var i in _upgrade2Requests)
             {
                 ref var request = ref _upgrade2Requests.Get1(i);
-                if(!request.Target.IsAlive()) continue;
+                
+                if(!request.Target.IsAlive()) 
+                    continue;
 
                 ref var upgrade2 = ref request.Target.Get<Upgrade2Component>();
                 ref var income = ref request.Target.Get<IncomeComponent>();

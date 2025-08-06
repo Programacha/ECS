@@ -2,13 +2,14 @@
 
 namespace _Scripts.SaveData
 {
-    [System.Serializable]
-    public class SaveData {
+    [Serializable]
+    public class SaveData 
+    {
         public float Balance;
         public BusinessSave[] Businesses;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class BusinessSave {
         public int Level;
         public float Progress;

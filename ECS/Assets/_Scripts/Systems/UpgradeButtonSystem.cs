@@ -7,7 +7,6 @@ namespace _Scripts.Systems
     public class UpgradeButtonSystem : IEcsRunSystem 
     {
         private readonly EcsFilter<Upgrade1Component, Upgrade2Component, BusinessViewComponent> _filter = null;
-        
         private readonly EcsWorld _world = null;
 
         public void Run()
@@ -15,6 +14,7 @@ namespace _Scripts.Systems
             foreach (var i in _filter) 
             {
                 var entity = _filter.GetEntity(i);
+                
                 ref var view = ref _filter.Get3(i);
 
                 view.Upgrade1Btn.onClick.RemoveAllListeners();

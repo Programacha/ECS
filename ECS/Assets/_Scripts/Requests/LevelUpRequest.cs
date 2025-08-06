@@ -2,7 +2,8 @@
 
 namespace _Scripts.Requests
 {
-    public struct LevelUpRequest {
+    public struct LevelUpRequest 
+    {
         public EcsEntity Target;
     }
 }
