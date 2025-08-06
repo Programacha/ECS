@@ -9,8 +9,10 @@ namespace _Scripts.Components
         public Button Upgrade1Btn;
         public TextMeshProUGUI Upgrade1NameText;
         public TextMeshProUGUI Upgrade1PriceText;
+        public TextMeshProUGUI Upgrade1MultiplierText;
         public Button Upgrade2Btn;
         public TextMeshProUGUI Upgrade2NameText;
+        public TextMeshProUGUI Upgrade2MultiplierText;
         public TextMeshProUGUI Upgrade2PriceText;
         public TextMeshProUGUI NameText;
         public TextMeshProUGUI LevelText;

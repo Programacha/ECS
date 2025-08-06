@@ -90,6 +90,8 @@ namespace _Scripts.MainSceneInstaller
                 view.Upgrade2NameText = uiView.SecondBusinessImpName;
                 view.Upgrade1PriceText = uiView.FirstBusinessImpPrice;
                 view.Upgrade2PriceText = uiView.SecondBusinessImpPrice;
+                view.Upgrade1MultiplierText = uiView.FirstBusinessImpMultiplier;
+                view.Upgrade2MultiplierText = uiView.SecondBusinessImpMultiplier;
 
                 view.NameText.text = data.Name;
                 view.Upgrade1NameText.text = data.Upgrade1.Name;

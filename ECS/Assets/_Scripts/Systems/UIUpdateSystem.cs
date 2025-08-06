@@ -41,8 +41,10 @@ namespace _Scripts.Systems
 
                 view.Upgrade1Btn.interactable = !upg1.Purchased && upg1.Cost < balance.Value;
                 view.Upgrade1PriceText.text = upg1.Purchased ? PURCHASED : $"{upg1.Cost}$";
+                view.Upgrade1MultiplierText.text =  $"{upg1.Multiplier + "%"}";
                 view.Upgrade2Btn.interactable = !upg2.Purchased && upg2.Cost < balance.Value;
                 view.Upgrade2PriceText.text = upg2.Purchased ? PURCHASED : $"{upg2.Cost}$";
+                view.Upgrade2MultiplierText.text =  $"{upg2.Multiplier + "%"}";
             }
         }
     }
