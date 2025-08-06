@@ -5,23 +5,13 @@ using UnityEngine;
 
 namespace _Scripts.Systems
 {
-    public class SaveSystem : IEcsRunSystem {
+    public class SaveSystem : IEcsSystem {
         private readonly EcsFilter<BalanceComponent> _balanceFilter = null;
         private readonly EcsFilter<BusinessComponent, IncomeComponent, Upgrade1Component, Upgrade2Component> _businessFilter = null;
         
         private const string SAVE_DATA = "SaveData";
-
-        public void Run() 
-        {
-            
-        }
-
-        public void ForceSave() 
-        {
-            Save();
-        }
-
-        private void Save() 
+        
+        public void Save() 
         {
             var save = new SaveData.SaveData();
             save.Balance = _balanceFilter.Get1(0).Value;

@@ -111,7 +111,7 @@ namespace _Scripts.MainSceneInstaller
                 
                 if (system is SaveSystem saveSystem)
                 {
-                    saveSystem.ForceSave();
+                    saveSystem.Save();
                     break;
                 }
             }
